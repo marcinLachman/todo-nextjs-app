@@ -6,14 +6,12 @@ generator client {
 }
 
 datasource db {
-  // provider = "sqlite"
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Tasks {
   id String   @id @default(auto()) @map("_id") @db.ObjectId
-  // id String @id @default(cuid())
   taskName String
   taskDescription String
   isActive Boolean @default(false)
